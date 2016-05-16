@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            <input type="button" value="1" style="width:25mm;height:15mm" onclick="passButtonNumber(1)" />
+        </td>
+        <td>
+            <input type="button" value="2" style="width:25mm;height:15mm" onclick="passButtonNumber(2)" />
+        </td>
+        <td>
+            <input type="button" value="3" style="width:25mm;height:15mm" onclick="passButtonNumber(3)" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="4" style="width:25mm;height:15mm" onclick="passButtonNumber(4)" />
+        </td>
+        <td>
+            <input type="button" value="5"  style="width:25mm;height:15mm" onclick="passButtonNumber(5)" />
+        </td>
+        <td>
+            <input type="button" value="6" style="width:25mm;height:15mm" onclick="passButtonNumber(6)" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="7" style="width:25mm;height:15mm" onclick="passButtonNumber(7)" />
+        </td>
+        <td>
+            <input type="button" value="8" style="width:25mm;height:15mm" onclick="passButtonNumber(8)" />
+        </td>
+        <td>
+            <input type="button" value="9" style="width:25mm;height:15mm" onclick="passButtonNumber(9)" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="*" style="width:25mm;height:15mm" onclick="passButtonNumber('*')" />
+        </td>
+        <td>
+            <input type="button" value="0" style="width:25mm;height:15mm" onclick="passButtonNumber(0)" />
+        </td>
+        <td>
+            <input type="button" value="#" style="width:25mm;height:15mm" onclick="passButtonNumber('#')" />
+        </td>
+    </tr>
+</table>
+<input type="text" value="Mobile Number" style="width:30mm ; background-color:#B3E5FC;"  onfocus='blur()' >
+<input type="text" value="" style="width:50mm ; text-align:right; background-color:#B3E5FC;"  onfocus='blur()' id="number">
+<br>
+<textarea cols="36" rows="4" placeholder="Message" id="textarea">
+</textarea>
+<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<input type="button" value="submit" style="width:15mm;height:5mm;" onclick="sendMessage()" />
+<script type="text/javascript">
+    function passButtonNumber(num) {
+    document.getElementById("number").value = Android.getNumberFromWeb(num);
+    }
+    function sendMessage() {
+    Android.sendMessageToNumber( document.getElementById("number").value, document.getElementById("textarea").value );
+    document.getElementById("textarea").value = "";
+    document.getElementById("number").value = "";
+    }
+</script>
+</body>
+</html>
